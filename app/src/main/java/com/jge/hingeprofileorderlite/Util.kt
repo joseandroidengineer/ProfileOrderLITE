@@ -1,5 +1,12 @@
 package com.jge.hingeprofileorderlite
 
+import android.content.Context
+import android.content.res.Resources
+import android.util.TypedValue
+
+
+
+
 object Util {
     fun checkIfObjectIsNonNull(`object`: Any?): Boolean {
         if (`object` is String) {
@@ -26,5 +33,14 @@ object Util {
             return stringBuilder.toString()
         }
         return ""
+    }
+
+    fun convertToPx(dp: Float, context: Context):Int{
+        val r: Resources = context.resources
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            dp,
+            r.displayMetrics
+        ).toInt()
     }
 }

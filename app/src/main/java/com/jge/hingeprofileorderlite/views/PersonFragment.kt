@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.setMargins
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.jge.hingeprofileorderlite.R
@@ -44,9 +45,7 @@ class PersonFragment(private val person: Person): Fragment()  {
     private fun createTextView(text: String, context: Context):TextView{
         val textView = TextView(context)
         val params = LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
-        params.topMargin = 16
-        params.bottomMargin = 16
-        params.leftMargin = 16
+        params.setMargins(Util.convertToPx(8f,context))
         textView.layoutParams = params
         textView.text = text
         return textView
